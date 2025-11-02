@@ -1,9 +1,8 @@
-// components/PriceRangeFilter.tsx
 import React, { useState } from "react";
 
 interface PriceRangeFilterProps {
   onPriceRangeChange: (min: number, max: number) => void;
-  maxPrice?: number; // Optional: dynamic max from your products
+  maxPrice?: number;
 }
 
 const PriceRangeFilter: React.FC<PriceRangeFilterProps> = ({
@@ -13,7 +12,6 @@ const PriceRangeFilter: React.FC<PriceRangeFilterProps> = ({
   const [minPrice, setMinPrice] = useState<number>(0);
   const [maxPriceValue, setMaxPriceValue] = useState<number>(maxPrice);
 
-  // Generate price range options
   const priceRanges = [
     { label: "All Prices", min: 0, max: maxPrice },
     { label: "Under $100", min: 0, max: 100 },
@@ -38,7 +36,6 @@ const PriceRangeFilter: React.FC<PriceRangeFilterProps> = ({
     <div className="space-y-4">
       <h4 className="font-medium text-gray-900">Price Range</h4>
 
-      {/* Predefined Ranges */}
       <div className="space-y-2">
         {priceRanges.map((range, index) => (
           <button
@@ -55,7 +52,6 @@ const PriceRangeFilter: React.FC<PriceRangeFilterProps> = ({
         ))}
       </div>
 
-      {/* Custom Range Inputs */}
       <div className="pt-4 border-t border-gray-200">
         <p className="text-sm font-medium text-gray-900 mb-3">Custom Range</p>
         <div className="flex gap-2">
@@ -92,7 +88,6 @@ const PriceRangeFilter: React.FC<PriceRangeFilterProps> = ({
         </div>
       </div>
 
-      {/* Selected Range Display */}
       <div className="text-sm text-gray-600">
         Selected: ${minPrice} - ${maxPriceValue}
       </div>

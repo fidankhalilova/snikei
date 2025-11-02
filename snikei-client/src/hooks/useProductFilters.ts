@@ -1,4 +1,3 @@
-// hooks/useProductFilters.ts
 import { useState, useMemo } from "react";
 import type { Product } from "../Types/product";
 
@@ -25,13 +24,11 @@ export const useProductFilters = (
     colors: [],
   });
 
-  // Filter products based on active filters
   const filteredProducts = useMemo(() => {
     console.log("🔄 Filtering products...");
     console.log("Products count:", products.length);
     console.log("Active filters:", filters);
 
-    // If no filters are active, return all products
     if (
       filters.categories.length === 0 &&
       filters.priceRanges.length === 0 &&
@@ -46,7 +43,6 @@ export const useProductFilters = (
       let priceMatch = true;
       let colorMatch = true;
 
-      // Category filter
       if (filters.categories.length > 0) {
         const productCategories =
           product.categories?.map((cat) => cat.name) || [];
@@ -63,7 +59,6 @@ export const useProductFilters = (
         );
       }
 
-      // Price range filter
       if (filters.priceRanges.length > 0) {
         priceMatch = filters.priceRanges.some((range) => {
           const price = product.originalPrice;
@@ -90,7 +85,6 @@ export const useProductFilters = (
         });
       }
 
-      // Color filter
       if (filters.colors.length > 0) {
         colorMatch = !!product.color && filters.colors.includes(product.color);
         console.log(`Product "${product.name}" color match:`, colorMatch, {

@@ -1,4 +1,3 @@
-// components/ProductFilters.tsx
 import React, { useState } from "react";
 import type { Category } from "../../Types/product";
 import PriceRangeFilter from "./PriceRangeFilter";
@@ -88,10 +87,8 @@ const ProductFilters: React.FC<ProductFiltersProps> = ({
         </button>
       </div>
 
-      {/* Price Range Filter */}
       <PriceRangeFilter onPriceRangeChange={handlePriceRangeChange} />
 
-      {/* Color Filter */}
       <div>
         <h4 className="font-medium mb-3">Colors</h4>
         <div className="grid grid-cols-5 gap-2">
@@ -115,7 +112,6 @@ const ProductFilters: React.FC<ProductFiltersProps> = ({
         </div>
       </div>
 
-      {/* Category Filter */}
       <div>
         <h4 className="font-medium mb-3">Categories</h4>
         <div className="space-y-2">
@@ -133,7 +129,6 @@ const ProductFilters: React.FC<ProductFiltersProps> = ({
         </div>
       </div>
 
-      {/* Active Filters Summary */}
       {(selectedColors.length > 0 ||
         priceRange[0] > 0 ||
         priceRange[1] < 1000 ||
